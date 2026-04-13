@@ -5,9 +5,13 @@
 
 A Filament v5 form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
 
+<div class="filament-hidden">
+
 ## Demo
 
-<img src="art/demo.jpeg" alt="Demo" class="filament-hidden" />
+<img src="art/demo.jpeg" alt="Demo" />
+
+</div>
 
 ## Requirements
 
