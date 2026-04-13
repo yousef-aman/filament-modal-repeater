@@ -7,7 +7,7 @@ A Filament v5 form component that displays repeater items in a compact table wit
 
 ## Demo
 
-![Demo](art/demo.jpeg)
+<img src="art/demo.jpeg" alt="Demo" class="filament-hidden" />
 
 ## Requirements
 
