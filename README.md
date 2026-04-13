@@ -159,7 +159,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please send an e-mail to Yousef Aman. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability, please report it via [GitHub Issues](https://github.com/yousef-aman/filament-modal-repeater/issues). All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
