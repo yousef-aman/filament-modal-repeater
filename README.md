@@ -1,6 +1,13 @@
 # Filament Modal Repeater
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
+[![Total Downloads](https://img.shields.io/packagist/dt/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
+
 A Filament v5 form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
+
+## Demo
+
+![Demo](art/demo.jpeg)
 
 ## Requirements
 
@@ -8,6 +15,8 @@ A Filament v5 form component that displays repeater items in a compact table wit
 - Filament v5
 
 ## Installation
+
+You can install the package via composer:
 
 ```bash
 composer require yousefaman/filament-modal-repeater
@@ -136,6 +145,23 @@ ModalRepeater::make('items')
     ->deletable(false)
 ```
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability, please send an e-mail to Yousef Aman. All security vulnerabilities will be promptly addressed.
+
+## Credits
+
+- [Yousef Aman](https://github.com/yousef-aman)
+- [All Contributors](../../contributors)
+
 ## License
 
-MIT. See [LICENSE.md](LICENSE.md).
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
