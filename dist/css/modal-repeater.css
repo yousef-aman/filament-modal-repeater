@@ -1,0 +1,144 @@
+.fi-fo-modal-repeater {
+    display: grid;
+    container-type: inline-size;
+}
+
+@container (min-width: 36rem) {
+    .fi-fo-modal-repeater {
+        display: block;
+    }
+}
+
+.fi-fo-modal-repeater > table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: calc(var(--spacing) * 2);
+    overflow: hidden;
+    border: 1px solid var(--color-gray-200);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater > table {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fi-fo-modal-repeater > table > thead {
+    background-color: var(--color-gray-50);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater > table > thead {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.fi-fo-modal-repeater > table > thead > tr > th {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: start;
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater > table > thead > tr > th {
+    color: var(--color-gray-400);
+}
+
+.fi-fo-modal-repeater > table > tbody > tr {
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater > table > tbody > tr {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.fi-fo-modal-repeater > table > tbody > tr:last-child {
+    border-bottom: none;
+}
+
+.fi-fo-modal-repeater > table > tbody > tr > td {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    font-size: 0.875rem;
+    color: var(--color-gray-900);
+    vertical-align: middle;
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater > table > tbody > tr > td {
+    color: white;
+}
+
+.fi-fo-modal-repeater-actions {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+}
+
+.fi-fo-modal-repeater-add {
+    padding: calc(var(--spacing) * 2);
+}
+
+.fi-fo-modal-repeater-add.fi-align-start {
+    text-align: start;
+}
+
+.fi-fo-modal-repeater-add.fi-align-center {
+    text-align: center;
+}
+
+.fi-fo-modal-repeater-add.fi-align-end {
+    text-align: end;
+}
+
+.fi-fo-modal-repeater-empty {
+    padding: calc(var(--spacing) * 8) calc(var(--spacing) * 4);
+    text-align: center;
+    border: 1px dashed var(--color-gray-300);
+    border-radius: calc(var(--spacing) * 2);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater-empty {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fi-fo-modal-repeater-empty-text {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater-empty-text {
+    color: var(--color-gray-400);
+}
+
+.fi-fo-modal-repeater-boolean-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.fi-fo-modal-repeater-boolean-icon--true {
+    color: var(--color-success-500, #22c55e);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater-boolean-icon--true {
+    color: var(--color-success-400, #4ade80);
+}
+
+.fi-fo-modal-repeater-boolean-icon--false {
+    color: var(--color-danger-500, #ef4444);
+}
+
+:where(.dark, .dark *) .fi-fo-modal-repeater-boolean-icon--false {
+    color: var(--color-danger-400, #f87171);
+}
+
+.fi-fo-modal-repeater-empty-header-cell {
+    width: 1%;
+    white-space: nowrap;
+}
+
+/* Compact mode */
+.fi-fo-modal-repeater.fi-compact > table > thead > tr > th {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+}
+
+.fi-fo-modal-repeater.fi-compact > table > tbody > tr > td {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+}
