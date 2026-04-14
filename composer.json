@@ -1,6 +1,6 @@
 {
     "name": "yousefaman/filament-modal-repeater",
-    "description": "A Filament v5 form component that displays repeater items in a table with modal-based editing.",
+    "description": "A Filament form component that displays repeater items in a table with modal-based editing.",
     "keywords": ["filament", "laravel", "repeater", "modal", "table", "form"],
     "license": "MIT",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "filament/filament": "^5.0",
+        "filament/filament": "^4.0 || ^5.0",
         "spatie/laravel-package-tools": "^1.9"
     },
     "require-dev": {

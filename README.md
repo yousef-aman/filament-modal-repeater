@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
 [![Total Downloads](https://img.shields.io/packagist/dt/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
 
-A Filament v5 form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
+A Filament form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
 
 <p class="filament-hidden">
   <img src="art/demo.jpeg" alt="Filament Modal Repeater Demo" />
@@ -12,7 +12,7 @@ A Filament v5 form component that displays repeater items in a compact table wit
 ## Requirements
 
 - PHP 8.2+
-- Filament v5
+- Filament v4 or v5
 
 ## Installation
 
@@ -147,11 +147,11 @@ ModalRepeater::make('items')
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/yousef-aman/filament-modal-repeater/blob/main/CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/yousef-aman/filament-modal-repeater/blob/main/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
@@ -160,8 +160,8 @@ If you discover a security vulnerability, please report it via [GitHub Issues](h
 ## Credits
 
 - [Yousef Aman](https://github.com/yousef-aman)
-- [All Contributors](../../contributors)
+- [All Contributors](https://github.com/yousef-aman/filament-modal-repeater/graphs/contributors)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/yousef-aman/filament-modal-repeater/blob/main/LICENSE.md) for more information.
