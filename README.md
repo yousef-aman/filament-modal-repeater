@@ -22,6 +22,12 @@ You can install the package via composer:
 composer require yousefaman/filament-modal-repeater
 ```
 
+Then run the install command:
+
+```bash
+php artisan modal-repeater:install
+```
+
 ## Setup
 
 Register the plugin in your panel provider (optional but recommended):

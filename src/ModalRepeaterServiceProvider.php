@@ -4,6 +4,7 @@ namespace YousefAman\ModalRepeater;
 
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -13,7 +14,11 @@ class ModalRepeaterServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('modal-repeater')
-            ->hasViews();
+            ->hasViews()
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->askToStarRepoOnGitHub('yousef-aman/filament-modal-repeater');
+            });
     }
 
     public function packageBooted(): void
