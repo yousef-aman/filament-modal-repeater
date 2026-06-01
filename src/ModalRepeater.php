@@ -9,6 +9,7 @@ use Filament\Schemas\Components\Grid;
 use Filament\Support\Enums\Size;
 use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
 
 class ModalRepeater extends Repeater
 {
@@ -97,6 +98,24 @@ class ModalRepeater extends Repeater
         return $this->evaluate($this->modalSchema) ?? [];
     }
 
+    /**
+     * Build the grid wrapping the modal schema. When the repeater is bound to a
+     * relationship, the grid is tied to the related model so nested fields
+     * (e.g. a Select using its own relationship) resolve against that model
+     * instead of the parent form's model.
+     */
+    public function makeModalGrid(): Grid
+    {
+        $grid = Grid::make($this->getModalColumns())
+            ->schema($this->getModalSchema());
+
+        if ($this->hasRelationship()) {
+            $grid->model($this->getRelatedModel());
+        }
+
+        return $grid;
+    }
+
     public function getDefaultView(): string
     {
         return 'modal-repeater::modal-repeater';
@@ -108,8 +127,7 @@ class ModalRepeater extends Repeater
             ->label(fn (self $component) => $component->getAddActionLabel())
             ->color('gray')
             ->schema(fn (self $component) => [
-                Grid::make($component->getModalColumns())
-                    ->schema($component->getModalSchema()),
+                $component->makeModalGrid(),
             ])
             ->modalHeading(fn (self $component) => $component->getAddActionLabel())
             ->modalWidth(fn (self $component) => $component->getModalWidth())
@@ -156,8 +174,7 @@ class ModalRepeater extends Repeater
         $action = Action::make('edit')
             ->label(__('filament-actions::edit.single.label'))
             ->schema(fn (self $component) => [
-                Grid::make($component->getModalColumns())
-                    ->schema($component->getModalSchema()),
+                $component->makeModalGrid(),
             ])
             ->modalHeading(__('filament-actions::edit.single.label'))
             ->modalWidth(fn (self $component) => $component->getModalWidth())
@@ -201,13 +218,46 @@ class ModalRepeater extends Repeater
     {
         $items = $this->getRawState();
         $itemState = $items[$itemKey] ?? [];
+
+        $record = $this->resolveItemRecord($itemKey, $itemState);
+
         $values = [];
 
         foreach ($this->getDisplayColumns() as $column) {
-            $rawValue = $itemState[$column->getName()] ?? null;
-            $values[$column->getName()] = $column->resolveValue($rawValue);
+            $name = $column->getName();
+
+            // When the item maps to an Eloquent record, resolve against it so
+            // dot-notation columns (e.g. "competency.name") traverse relations.
+            // Otherwise read straight from the array state, still honouring dots.
+            $rawValue = $record
+                ? data_get($record, $name)
+                : data_get($itemState, $name);
+
+            $values[$name] = $column->resolveValue($rawValue);
         }
 
         return $values;
+    }
+
+    /**
+     * Resolve the Eloquent record an item maps to, for relationship repeaters.
+     * Returns null for plain array repeaters, whose values live in the state.
+     */
+    protected function resolveItemRecord(string $itemKey, array $itemState): ?Model
+    {
+        if (! $this->hasRelationship()) {
+            return null;
+        }
+
+        $existingRecord = $this->getCachedExistingRecords()[$itemKey] ?? null;
+
+        // Clone the persisted record (keeping any eager-loaded relations) or
+        // build a fresh one for new items, then overlay the current state so
+        // relationship columns reflect unsaved edits made in the modal.
+        $relatedModel = $this->getRelatedModel();
+
+        $record = $existingRecord ? clone $existingRecord : new $relatedModel;
+
+        return $record->forceFill($itemState);
     }
 }
