@@ -8,6 +8,13 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
+    # Wait before proposing a freshly published release, so an obviously bad or
+    # malicious version has time to be reported before it reaches this package.
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 7
 
   # Keep GitHub Actions workflow dependencies up to date
   - package-ecosystem: "github-actions"
@@ -17,3 +24,6 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
+    # The github-actions ecosystem supports default-days only.
+    cooldown:
+      default-days: 7
