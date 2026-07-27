@@ -7,3 +7,12 @@ composer.lock
 phpunit.xml
 .DS_Store
 Thumbs.db
+
+# IDE settings are per-machine: PhpStorm rewrites the vendor excludeFolder
+# entries on every composer update, so tracking them means endless churn.
+/.idea
+
+# Unused screenshot variants. README uses art/demo.jpeg, which stays tracked.
+/art/demo-filament.jpeg
+/art/demo-filament.png
+/art/demo-thumb.jpeg

@@ -1,0 +1,16 @@
+# Keep the released Composer archive down to what the package needs at runtime.
+#
+# Deliberately NOT export-ignored, because the service provider loads them:
+#   dist/css/modal-repeater.css          -> ModalRepeaterServiceProvider
+#   resources/views/modal-repeater.blade.php
+#
+# art/ is excluded from the archive only. The repository keeps art/demo.jpeg,
+# so the README screenshot still renders on GitHub and Packagist.
+/.github            export-ignore
+/.idea              export-ignore
+/art                export-ignore
+/tests              export-ignore
+/.gitattributes     export-ignore
+/.gitignore         export-ignore
+/phpunit.xml.dist   export-ignore
+/CONTRIBUTING.md    export-ignore
