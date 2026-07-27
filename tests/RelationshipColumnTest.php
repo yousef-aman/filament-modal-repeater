@@ -70,7 +70,13 @@ class JobProfileForm extends LivewireComponent implements HasActions, HasForms
         $this->record = $record;
 
         $this->form->fill();
-        $this->form->loadStateFromRelationships(shouldHydrate: true);
+
+        // Mirror how Filament hydrates a relationship repeater's state from the
+        // existing records (keyed by "record-{id}"), so the table actually
+        // renders rows in this minimal test harness.
+        $this->data['competencyJobProfiles'] = $record->competencyJobProfiles
+            ->mapWithKeys(fn (CompetencyJobProfile $item) => ["record-{$item->getKey()}" => $item->attributesToArray()])
+            ->all();
     }
 
     // Livewire v4's data store is not persisted in headless tests, so the
@@ -155,6 +161,13 @@ it('resolves dot-notation relationship column values for display', function () {
 
     expect($repeater->getItemDisplayValues('record-1')['competency.name'])->toBe('PHP')
         ->and($repeater->getItemDisplayValues('record-2')['competency.name'])->toBe('Laravel');
+});
+
+it('renders the dot-notation relationship value in the table', function () {
+    // End-to-end: the rendered repeater table HTML shows the related value.
+    Livewire::test(JobProfileForm::class, ['record' => $this->jobProfile])
+        ->assertSee('PHP')
+        ->assertSee('Laravel');
 });
 
 it('opens the edit modal for a pivot relationship item without a LogicException', function () {
