@@ -2,6 +2,14 @@
 
 All notable changes to `filament-modal-repeater` will be documented in this file.
 
+## v1.1.3 - 2026-10-05
+
+- Fixed a fatal error on Filament 4.14+ and 5.8+, where `ModalRepeater` no
+  longer loaded because its `schema()` signature did not accept the
+  `Filament\Schemas\Schema` object those versions allow (#4).
+- `schema()` now also accepts a `Schema` object, and its components drive the
+  add and edit modals the same way an array schema does.
+
 ## v1.1.2 - 2026-07-27
 
 - The released archive now ships only what the package needs at runtime, so
