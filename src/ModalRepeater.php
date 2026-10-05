@@ -6,6 +6,7 @@ use Closure;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Schema;
 use Filament\Support\Enums\Size;
 use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
@@ -16,7 +17,7 @@ class ModalRepeater extends Repeater
     /** @var array<Column> */
     protected array $displayColumns = [];
 
-    protected array|Closure|null $modalSchema = null;
+    protected array|Schema|Closure|null $modalSchema = null;
 
     protected int|Closure $modalColumns = 2;
 
@@ -50,7 +51,11 @@ class ModalRepeater extends Repeater
             ?? __('filament-tables::table.empty.heading', ['model' => $this->getLabel()]);
     }
 
-    public function schema(array|Closure|null $schema): static
+    /**
+     * Filament 4.14 / 5.8 widened the parent to also accept a Schema object.
+     * Earlier versions take array|Closure, which this signature still covers.
+     */
+    public function schema(array|Schema|Closure $schema): static
     {
         $this->modalSchema = $schema;
 
@@ -95,7 +100,16 @@ class ModalRepeater extends Repeater
 
     public function getModalSchema(): array
     {
-        return $this->evaluate($this->modalSchema) ?? [];
+        $schema = $this->evaluate($this->modalSchema);
+
+        // The repeater configures a Schema object in place (parent component,
+        // state path) to build its items, so the modal grid must not share it.
+        // Hand the grid its components instead, as with a plain array schema.
+        if ($schema instanceof Schema) {
+            return $schema->getComponents(withHidden: true);
+        }
+
+        return $schema ?? [];
     }
 
     /**
