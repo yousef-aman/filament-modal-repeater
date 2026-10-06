@@ -2,6 +2,9 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
 [![Total Downloads](https://img.shields.io/packagist/dt/yousefaman/filament-modal-repeater.svg?style=flat-square)](https://packagist.org/packages/yousefaman/filament-modal-repeater)
+[![tests](https://img.shields.io/github/actions/workflow/status/yousef-aman/filament-modal-repeater/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/yousef-aman/filament-modal-repeater/actions/workflows/tests.yml)
+[![Filament](https://img.shields.io/badge/Filament-v4%20%7C%20v5-f59e0b?style=flat-square)](https://filamentphp.com/plugins/yousef-aman-modal-repeater)
+[![License](https://img.shields.io/packagist/l/yousefaman/filament-modal-repeater.svg?style=flat-square)](LICENSE.md)
 
 A Filament form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
 
@@ -9,10 +12,18 @@ A Filament form component that displays repeater items in a compact table with m
   <img src="art/demo.jpeg" alt="Filament Modal Repeater Demo" />
 </p>
 
+If this package saves you time, a star on GitHub helps other Filament developers find it.
+
 ## Requirements
 
 - PHP 8.2+
 - Filament v4 or v5
+
+### Tested combinations
+
+| PHP | Filament | Laravel |
+| --- | --- | --- |
+| 8.3, 8.4 | v4, v5 | 12, 13 |
 
 ## Installation
 
@@ -161,7 +172,7 @@ Please see [CONTRIBUTING](https://github.com/yousef-aman/filament-modal-repeater
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please report it via [GitHub Issues](https://github.com/yousef-aman/filament-modal-repeater/issues). All security vulnerabilities will be promptly addressed.
+Please do not report security vulnerabilities through public GitHub issues. Report them privately through [GitHub's private vulnerability reporting](https://github.com/yousef-aman/filament-modal-repeater/security/advisories/new) instead. See [SECURITY.md](SECURITY.md) for details.
 
 ## Credits
 
