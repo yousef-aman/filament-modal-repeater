@@ -75,7 +75,7 @@ ModalRepeater::make('items')
     ])
 ```
 
-Items are listed in a table. Clicking a row or the edit button opens a modal with the full form schema. Adding a new item also opens the same modal.
+Items are listed in a table. Clicking the edit button opens a modal with the full form schema. Adding a new item also opens the same modal.
 
 ## Column Types
 
