@@ -9,7 +9,7 @@
 A Filament form component that displays repeater items in a compact table with modal-based editing. Perfect for forms with many fields where inline editing becomes cluttered.
 
 <p class="filament-hidden">
-  <img src="art/demo.jpeg" alt="Filament Modal Repeater Demo" />
+  <img src="art/demo.gif" alt="Filament Modal Repeater Demo" />
 </p>
 
 If this package saves you time, a star on GitHub helps other Filament developers find it.

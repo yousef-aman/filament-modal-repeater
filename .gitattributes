@@ -4,8 +4,8 @@
 #   dist/css/modal-repeater.css          -> ModalRepeaterServiceProvider
 #   resources/views/modal-repeater.blade.php
 #
-# art/ is excluded from the archive only. The repository keeps art/demo.jpeg,
-# so the README screenshot still renders on GitHub and Packagist.
+# art/ is excluded from the archive only. The repository keeps art/demo.gif,
+# so the README demo still renders on GitHub and Packagist.
 /.github            export-ignore
 /.idea              export-ignore
 /art                export-ignore
